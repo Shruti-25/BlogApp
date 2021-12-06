@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+        #new{
+            margin-left: 630px;;
+        }
+        body{
+            background-color: #3d405b;
+        }
+        h1{
+            font-size: 55px;
+            text-align: center;
+            margin-top: 0px;
+            text-shadow: 2px solid #efd3d7;
+            color:white;
+        }
+        ul{
+        margin-left: 25%;
+        list-style: none;
+    }
+    li{
+        width: 600px;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 1px 1px 2px rgb(104, 104, 104);
+        padding: 16px;
+        margin-bottom: 10px;
+        background-color:#efd3d7;
+        word-wrap: break-word;
+    }
+    button{
+        width:120px;
+        height:30px;
+        
+        border-radius: 2px;
+
+        border:#ccc;
+    }
+    button:hover{
+        background-color: lightpink;
+    }
+    #delete{
+        background-color: #ccc;
+    }
+
+    </style>
+</head>
+<body>
+    <h1>Quotes</h1>
+
+    <a id="new" href="/quotes/new"><button>Add Quote</button></a>
+    <div>
+        <ul>
+
+            <% for(let quote of quotes){ %> 
+    
+                <li>
+                    <h3><%= quote.description %> </h3>
+                    <p><i><%= quote.name %></i> </p>
+                    <a href="/quotes/<%= quote._id %> "><button>View</button></a><br>
+                    <form action="/quotes/<%= quote._id %>?_method=DELETE" method="POST">
+                        <button id="delete" type="submit">Delete</button>
+                    </form>
+                </li>
+                </li>
+    
+            <% } %> 
+        </ul>
+    </div>
+</body>
+</html>
